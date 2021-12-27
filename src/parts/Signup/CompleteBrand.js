@@ -1,5 +1,5 @@
 import React from 'react'
-import Fade from 'react-reveal/Fade'
+// import Fade from 'react-reveal/Fade'
 import Button from 'elements/Button'
 
 
@@ -10,12 +10,12 @@ export default function CompleteBrand(props) {
                 <div class="d-flex align-items-center" style={{height: "45vh"}}>
                     <div className="row">
                         <div className="col-md-12">
-                            <Fade left cascade delay={300}>
+                            {/* <Fade left cascade delay={300}> */}
                                 <h1 className="text-caption fw-bold fs-1 mt-3 mb-4 text-white">Akun kamu berhasil dibuat.</h1>
-                            </Fade>
+                            {/* </Fade> */}
                         </div>
                         <div className="col-12">
-                            <Fade delay={900}>
+                            {/* <Fade delay={900}> */}
                                 <Button className="button-next fw-bold text-decoration-none text-center px-5 border-0"
                                         type="link"
                                         href="/signin"
@@ -25,7 +25,7 @@ export default function CompleteBrand(props) {
                                 >
                                     Masuk
                                 </Button>
-                            </Fade>  
+                            {/* </Fade>   */}
                         </div>
                     </div>
                 </div>

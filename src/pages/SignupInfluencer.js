@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Fade from 'react-reveal/Fade'
+// import Fade from 'react-reveal/Fade'
 
 import Button from 'elements/Button'
 import Stepper , {
@@ -61,14 +61,16 @@ export default class SignUpInfluencer extends Component {
             },
             influencerForm: {
                 title: "Signup Rateku",
-                description: (<Fade left cascade delay={300}>Satu langkah lagi!</Fade>),
+                // description: (<Fade left cascade delay={300}>Satu langkah lagi!</Fade>),
+                description: "Satu langkah lagi!",
                 content: (
                     <InfluencerForm data={data} onChange={this.onChange}/>
                 )
             },
             completeInfluencer: {
                 title: "Signup Rateku",
-                description: (<Fade left delay={600}>Akun kamu berhasil dibuat!</Fade>),
+                // description: (<Fade left delay={600}>Akun kamu berhasil dibuat!</Fade>),
+                description: "Akun kamu berhasil dibuat!",
                 content: (
                     <CompleteInfluencer data={data} onChange={this.onChange}/>
                 )
@@ -88,7 +90,7 @@ export default class SignUpInfluencer extends Component {
                                             {CurrentStep === "signup" && (
                                                 <Controller>
                                                     <div className="col-6 px-0">
-                                                        <Fade delay={1200}>
+                                                        {/* <Fade delay={1200}> */}
                                                             <Button className="btn btn-link text-decoration-none float-start"
                                                                     type="link"
                                                                     href="/"
@@ -96,7 +98,7 @@ export default class SignUpInfluencer extends Component {
                                                             >
                                                                 {"< Kembali"}
                                                             </Button>
-                                                        </Fade>
+                                                        {/* </Fade> */}
                                                     </div>
                                                     <div className="col-6">
                                                     {
@@ -110,7 +112,7 @@ export default class SignUpInfluencer extends Component {
                                                         // data.month !== "" &&
                                                         // data.year !== "" &&
                                                         data.gender !== "" && (
-                                                            <Fade delay={300}>
+                                                            // <Fade delay={300}>
                                                                 <Button className="button-next fw-bold text-decoration-none text-center px-5 float-end border-0"
                                                                         type="button"
                                                                         isPrimary 
@@ -120,7 +122,7 @@ export default class SignUpInfluencer extends Component {
                                                                 >
                                                                     Lanjutkan
                                                                 </Button>
-                                                            </Fade>
+                                                            // </Fade>
                                                         )
                                                     }
                                                     </div>
@@ -130,7 +132,7 @@ export default class SignUpInfluencer extends Component {
                                             {CurrentStep === "influencerForm" && (
                                                 <Controller>
                                                     <div className="col-6 px-0 mt-4" style={{height: "25vh"}}>
-                                                        <Fade delay={1200}>
+                                                        {/* <Fade delay={1200}> */}
                                                             <Button className="btn btn-link text-decoration-none float-start"
                                                                     type="button"
                                                                     isLarge 
@@ -138,14 +140,14 @@ export default class SignUpInfluencer extends Component {
                                                             >
                                                                 {"< Kembali"}
                                                             </Button>
-                                                        </Fade>
+                                                        {/* </Fade> */}
                                                     </div>
                                                     <div className="col-6 mt-4" style={{height: "25vh"}}>
                                                     {
                                                          data.instagram !== "" &&
                                                          data.konten !== "" &&
                                                          data.knowRateku !== "" && (
-                                                            <Fade delay={300}>
+                                                            // <Fade delay={300}>
                                                                 <Button className="button-next fw-bold text-decoration-none text-center px-5 float-end border-0"
                                                                         type="button"
                                                                         isPrimary 
@@ -155,7 +157,7 @@ export default class SignUpInfluencer extends Component {
                                                                 >
                                                                     Lanjutkan
                                                                 </Button>
-                                                            </Fade>
+                                                            // </Fade>
                                                         )
                                                     }
                                                     </div>
@@ -166,18 +168,17 @@ export default class SignUpInfluencer extends Component {
                                                 <Controller>
                                                     <div className="col-12">
                                                     {
-                                                       
-                                                            <Fade delay={300}>
-                                                                <Button className="button-next fw-bold text-decoration-none text-center px-5 float-end border-0"
-                                                                        type="link"
-                                                                        href="/"
-                                                                        isPrimary 
-                                                                        isRounded
-                                                                        isLarge 
-                                                                >
-                                                                    Selesai
-                                                                </Button>
-                                                            </Fade>
+                                                        // <Fade delay={300}>
+                                                            <Button className="button-next fw-bold text-decoration-none text-center px-5 float-end border-0"
+                                                                    type="link"
+                                                                    href="/"
+                                                                    isPrimary 
+                                                                    isRounded
+                                                                    isLarge 
+                                                            >
+                                                                Selesai
+                                                            </Button>
+                                                        // </Fade>
                                                         
                                                     }
                                                     </div>

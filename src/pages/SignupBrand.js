@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Button from 'elements/Button'
-import Fade from 'react-reveal/Fade'
+// import Fade from 'react-reveal/Fade'
 
 import Stepper , {
     Meta,
@@ -65,7 +65,8 @@ export default class SignupBrand extends Component {
             },
             brandForm: {
                 title: "Signup Rateku",
-                description: (<Fade left cascade delay={300}>Satu langkah lagi!</Fade>),
+                // description: (<Fade left cascade delay={300}>Satu langkah lagi!</Fade>),
+                description: "Satu langkah lagi!",
                 content: <BrandForm data={data} onChange={this.onChange}/>
             },
             completeBrand: {
@@ -90,7 +91,7 @@ export default class SignupBrand extends Component {
                                         {CurrentStep === "signup" && (
                                                 <Controller>
                                                     <div className="col-6 px-1">
-                                                        <Fade delay={1200}>
+                                                        {/* <Fade delay={1200}> */}
                                                             <Button className="btn btn-link text-decoration-none float-start"
                                                                     type="link"
                                                                     href="/"
@@ -98,7 +99,7 @@ export default class SignupBrand extends Component {
                                                             >
                                                                 {"< Kembali"}
                                                             </Button>
-                                                        </Fade>
+                                                        {/* </Fade> */}
                                                     </div>
                                                     <div className="col-6">
                                                     {
@@ -112,7 +113,7 @@ export default class SignupBrand extends Component {
                                                         // data.month !== "" &&
                                                         // data.year !== "" &&
                                                         data.gender !== "" && (
-                                                            <Fade delay={300}>
+                                                            // <Fade delay={300}>
                                                                 <Button className="button-next fw-bold text-decoration-none text-center px-5 float-end border-0"
                                                                         type="button"
                                                                         isPrimary 
@@ -122,7 +123,7 @@ export default class SignupBrand extends Component {
                                                                 >
                                                                     Lanjutkan
                                                                 </Button>
-                                                            </Fade>
+                                                            // </Fade>
                                                         )
                                                     }
                                                     </div>
@@ -132,7 +133,7 @@ export default class SignupBrand extends Component {
                                             {CurrentStep === "brandForm" && (
                                                 <Controller>
                                                     <div className="col-6 px-0 pt-n5" style={{height: "25vh"}}>
-                                                        <Fade delay={1200}>
+                                                        {/* <Fade delay={1200}> */}
                                                             <Button className="btn btn-link text-decoration-none float-start"
                                                                     type="button"
                                                                     isLarge 
@@ -140,14 +141,14 @@ export default class SignupBrand extends Component {
                                                             >
                                                                 {"< Kembali"}
                                                             </Button>
-                                                        </Fade>
+                                                        {/* </Fade> */}
                                                     </div>
                                                     <div className="col-6 pt-n5" style={{height: "25vh"}}>
                                                     {
                                                          data.instagram !== "" &&
                                                          data.konten !== "" &&
                                                          data.knowRateku !== "" && (
-                                                            <Fade delay={300}>
+                                                            // <Fade delay={300}>
                                                                 <Button className="button-next fw-bold text-decoration-none text-center px-5 float-end border-0"
                                                                         type="button"
                                                                         isPrimary 
@@ -157,7 +158,7 @@ export default class SignupBrand extends Component {
                                                                 >
                                                                     Lanjutkan
                                                                 </Button>
-                                                            </Fade>
+                                                            // </Fade> 
                                                         )
                                                     }
                                                     </div>
