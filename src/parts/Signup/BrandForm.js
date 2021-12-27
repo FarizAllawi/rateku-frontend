@@ -17,7 +17,7 @@ export default function BrandForm(props) {
                                 placeholder="Nama Perusahaan"/>
                     </Fade>
                 </div>
-                <div className="row" style={{position:"relative", zIndex:"2"}}>
+                <div className="row" style={{position:"relative", zIndex:"3"}}>
                     <div className="col-md-12 col-lg-12 col-xl-6">
                         <Fade delay={900}>
                             <Select name="companyType"
@@ -73,7 +73,7 @@ export default function BrandForm(props) {
                 </div>
 
                 <div className="row" style={{position:"relative", zIndex:"2"}}>
-                    <div className="col-12 col-md-6 col-lg-6 col-xl-6">
+                    <div className="col-12 col-md-6 col-lg-6 col-xl-6" style={{position:"relative", zIndex:"3"}}>
                         <Fade delay={900}>
                             <Select name="knowRateku"
                                     value={props.data.knowRateku}

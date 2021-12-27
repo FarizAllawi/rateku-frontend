@@ -129,7 +129,7 @@ export default class SignUpInfluencer extends Component {
 
                                             {CurrentStep === "influencerForm" && (
                                                 <Controller>
-                                                    <div className="col-6 px-0 mt-4" style={{height: "30vh"}}>
+                                                    <div className="col-6 px-0 mt-4" style={{height: "25vh"}}>
                                                         <Fade delay={1200}>
                                                             <Button className="btn btn-link text-decoration-none float-start"
                                                                     type="button"
@@ -140,7 +140,7 @@ export default class SignUpInfluencer extends Component {
                                                             </Button>
                                                         </Fade>
                                                     </div>
-                                                    <div className="col-6 mt-4" style={{height: "30vh"}}>
+                                                    <div className="col-6 mt-4" style={{height: "25vh"}}>
                                                     {
                                                          data.instagram !== "" &&
                                                          data.konten !== "" &&
@@ -185,7 +185,7 @@ export default class SignUpInfluencer extends Component {
                                             )}
                                         </div>
                                     </div>
-
+                                    <div style={{height:"8vh"}}></div>
                                     <Footer footerContainer="px-4"/>
                                 </div>
                             </>

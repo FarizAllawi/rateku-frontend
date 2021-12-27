@@ -3,8 +3,8 @@ import LogoIcon from 'parts/icon/iconLogo'
 import LogoText from 'parts/icon/iconText'
 import Button from 'elements/Button'
 import Footer from 'parts/Footer'
-import Fade from 'react-reveal/Fade';
-import Slide from 'react-reveal/Slide'
+// import Fade from 'react-reveal/Fade';
+// import Slide from 'react-reveal/Slide'
 
 
 export default class LandingPage extends Component {
@@ -13,8 +13,8 @@ export default class LandingPage extends Component {
         return (
             <>
                 <div className="padding-page container px-4">
-                    <Fade delay={300}>
-                        <Slide delay={600} bottom>
+                    {/* <Fade delay={300}>
+                        <Slide delay={600} bottom> */}
                             <div className="logo col-xl-12">
                                 <div className="col-lg-12">
                                     <LogoIcon/>
@@ -23,14 +23,14 @@ export default class LandingPage extends Component {
                                     <LogoText/>
                                 </div>
                             </div>
-                        </Slide>
-                    </Fade>
+                        {/* </Slide>
+                    </Fade> */}
                     
-                    <Fade left delay={900}>
+                    {/* <Fade left delay={900}> */}
                         <div className="col-xl-12 mb-5">
-                            <Fade left cascade delay={1200}>
+                            {/* <Fade left cascade delay={1200}> */}
                                 <h1 className="text-caption fw-bold fs-1 mt-3 mb-4 text-white">Gabung Rateku sekarang!</h1>
-                            </Fade>
+                            {/* </Fade> */}
                             
                             <div className="mt-2 mb-2 d-grid gap-2">
 
@@ -78,9 +78,10 @@ export default class LandingPage extends Component {
                                 >
                                     Masuk
                                 </Button>
+                                <div style={{height:"15vh"}}></div>
                             </div>
                         </div>
-                    </Fade>
+                    {/* </Fade> */}
                     
                     <Footer footerContainer="px-4"/>
                 </div>

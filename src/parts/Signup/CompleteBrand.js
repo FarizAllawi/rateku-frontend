@@ -30,6 +30,7 @@ export default function CompleteBrand(props) {
                     </div>
                 </div>
             </div>
+            <div style={{height:"5vh"}}></div>
         </div>
     )
 }
