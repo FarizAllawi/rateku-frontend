@@ -18,7 +18,7 @@ export default function BrandForm(props) {
                     {/* </Fade> */}
                 </div>
                 <div className="row" style={{position:"relative", zIndex:"3"}}>
-                    <div className="col-md-12 col-lg-12 col-xl-6">
+                    <div className="col-md-12 col-lg-12 col-xl-6" style={{position:"relative", zIndex:"4"}}>
                         {/* <Fade delay={900}> */}
                             <Select name="companyType"
                                     value={props.data.companyType}
