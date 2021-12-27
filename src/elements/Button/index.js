@@ -10,11 +10,10 @@ export default function Button(props) {
     if (props.isBlock) className.push("btn-block")
     if (props.isRounded) className.push("btn-rounded")
     if (props.hasShadow) className.push("btn-shadow")
-    
 
     const onClick = () => {
-        if (props.onClick) props.onClick()
-    }
+        if (props.onClick) props.onClick();
+      };
 
     if (props.isDisabled || props.isLoading) {
         if (props.isDisabled) className.push('disabled')
@@ -52,11 +51,11 @@ export default function Button(props) {
             )
         }
     }
-
+    
     return <button className={className.join(' ')} 
                    style={props.style}
-                   onClick={onclick}
-            ></button>
+                   onClick={onClick}
+            >{props.children}</button>
 }
 
 Button.prototypes = {

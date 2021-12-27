@@ -1,0 +1,64 @@
+@import '../../../assets/scss/style.scss';
+
+.select {
+    color : $gray-400;
+    margin-bottom:20px;
+
+    .select-group {
+        position: relative;
+
+        .arrow {
+            filter:  invert(100%) sepia(0%) saturate(0%) hue-rotate(47deg) brightness(106%) contrast(100%);
+            transition: all 0.2s ease;
+        }
+        
+        .active {
+            transform: rotate(-180deg);
+            transition: all 0.2s ease;
+        }
+        
+        .form-control {
+            background-color: $gray-800;
+            border: 0.5px solid $gray-600;
+            cursor: pointer;
+            height:45px;
+            transition: 0.3s ease-out;
+            color: $gray-600;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .option-group {
+            position: absolute;
+            border: 0.5px solid $gray-600;
+            box-shadow: none;
+            background-color: #24354A;
+            color: $gray-600;
+            cursor: pointer;
+            transition: 0.3s ease-out;
+
+            .option {
+                cursor: pointer;
+                transition: 0.2s ease-in;
+            }
+
+            li {
+                list-style: none;
+                padding: 6px 20px;
+                cursor: pointer;
+            }
+    
+            .option:hover {
+                background-color: $gray-500;
+                cursor: pointer;
+                transition: 0.2s ease-in;
+            }
+        }
+
+        
+    }
+
+}
