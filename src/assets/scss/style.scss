@@ -93,6 +93,16 @@ body {
         color: $gray-500;
     }
 
+    .text-gray {
+        color: $gray-500;
+    }
+
+    .switch-toggle {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 6.25rem;
+    }
+    
     .footer {
         font-size: 0.75rem;
     }
@@ -121,6 +131,11 @@ body {
                 font-size: 1.25rem;
                 padding: 0.3rem 1.3rem !important;
             }
+        }
+
+        .text-option{
+            color:$gray-500;
+            font-size:1rem;
         }
 
         .footer {
@@ -154,6 +169,11 @@ body {
         .text-caption {
             font-size: 4rem !important;
             margin-bottom: 3rem !important;
+        }
+
+        .text-option{
+            color:$gray-500;
+            font-size:1.25rem;
         }
 
         .button-signup {
@@ -195,6 +215,13 @@ body {
                 padding: 0.3rem 1.75rem !important;
                 font-size: 1.25rem !important;
             }
+        }
+
+        .switch-toggle {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 7.25rem;
+            margin-top: 2rem;
         }
 
         .footer {

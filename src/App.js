@@ -9,7 +9,7 @@ import SignupBrand from "pages/SignupBrand"
 
 function App() {
   return (
-    <div className="">
+    <>
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
         <Route path="/signin" element={<Signin/>}/>
@@ -17,7 +17,7 @@ function App() {
         <Route path="/signup-brand" element={<SignupBrand/>}/>
         {/* <Route path="/example" element={<Example/>}/> */}
       </Routes>
-    </div>
+    </>
   );
 }
 

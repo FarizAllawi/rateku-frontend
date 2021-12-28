@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Select from 'elements/Form/Select'
 import Input from 'elements/Form/Input'
+import Switch from 'elements/Form/Switch'
 import useForm from 'helpers/hooks/useForm'
 
 export default function Example() {
@@ -14,8 +15,15 @@ export default function Example() {
             <div className="row align-items-center justify-content-center"
                     style={{height: "100vh"}}
             >
-                <div className="col-12 col-sm-12 col-md-6 col-lg-3 ">
-                    
+                <div className="col-sm-12 col-md-6 col-lg-3 ">
+                    <Switch name="toggle" 
+                            value={state.toggle} 
+                            onClick={setState}
+                            className="mb-5"
+                            defaultValue="influencers">
+                        <option value="influencers">Influencers</option>
+                        <option value="brands">Brands</option>
+                    </Switch>
                 </div>
 
 

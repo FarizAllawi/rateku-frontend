@@ -72,7 +72,7 @@ export default class LandingPage extends Component {
                                 </div>
                                 <Button className="button-signin py-2 px-5 mb-5 fw-bold text-decoration-none text-center btn-border btn-hover"
                                         type="link"
-                                        href="/sigin" 
+                                        href="/signin" 
                                         isLarge 
                                         isRounded
                                 >
