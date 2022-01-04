@@ -1,4 +1,4 @@
-import React, {Children, useState, useRef, useEffect} from 'react'
+import React, {Children} from 'react'
 import propTypes from 'prop-types'
 import "./index.scss"
 

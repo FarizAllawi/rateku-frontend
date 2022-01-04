@@ -47,10 +47,10 @@ export default function Select({
                 <label htmlFor="" className="label mb-1">{labelName}</label>
             )}
             
-            <div className={`select-group w-auto ${class_name.join(" ")}`} ref={selectWrapper} onClick={toggleSelect}>
+            <div className={`select-group w-auto `} ref={selectWrapper} onClick={toggleSelect}>
                 <div className="form-control rounded-3 px-3" >
                     <div className="d-flex align-items-center mt-1">
-                        <span className="col">{selected?.props.children ?? placeHolder}</span>
+                        <span className={`col ${ selected ? class_name.join(" ") : ''}`}>{selected?.props.children ?? placeHolder}</span>
                         { 
                             (isLoading) ? (
                                 <div className="spinner-border spinner-border-sm text-primary" role="status"></div>

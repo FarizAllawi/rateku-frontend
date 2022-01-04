@@ -82,13 +82,13 @@ export default function BrandForm(props) {
                                     onClick={props.onChange}
                                 // isLoading
                                 >
-                                <option value="laki">Selebgram/Influencers/KOL</option>
-                                <option value="laki">Media Sosial</option>
-                                <option value="laki">Teman/Keluarga/Guru/Dosen</option>
-                                <option value="laki">Iklan</option>
-                                <option value="laki">Artikel/Blog/Publikasi</option>
-                                <option value="laki">Search Engine (Google) </option>
-                                <option value="laki">Lainnya</option>
+                                <option value="Selebgram/Influencers/KOL">Selebgram/Influencers/KOL</option>
+                                <option value="Media Sosial">Media Sosial</option>
+                                <option value="Teman/Keluarga/Guru/Dosen">Teman/Keluarga/Guru/Dosen</option>
+                                <option value="Iklan">Iklan</option>
+                                <option value="Artikel/Blog/Publikasi">Artikel/Blog/Publikasi</option>
+                                <option value="Search Engine (Google)">Search Engine (Google)</option>
+                                <option value="Lainnya">Lainnya</option>
                             </Select>
                         {/* </Fade> */}
                     </div>

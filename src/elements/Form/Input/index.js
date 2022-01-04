@@ -7,6 +7,7 @@ export default function Input(props) {
     const {
         value,
         type,
+        pattern,
         placeholder,
         name,
         prepend,
@@ -15,25 +16,34 @@ export default function Input(props) {
         inputClassName,
         errorResponse,
         labelName,
-        range
+        range,
     } = props
 
     const [HasError, setHasError] = useState(null)
-    let pattern = ""
-    if (type === "email") pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (type === "number") pattern = "[0-9]*"
+    let patternValidate = ""
+    if (type === "text") patternValidate = pattern !== "" ? new RegExp(pattern) : new RegExp("")
+    if (type === "password") patternValidate = pattern !== "" ? new RegExp(pattern) : new RegExp("")
+    if (type === "email") patternValidate = pattern !== "" ? new RegExp(pattern) : /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (type === "number") patternValidate = pattern !== "" ? new RegExp(pattern) : "[0-9]*"
 
     const onChange = (event) => {
         const target = {
             target: {
                 name: name,
                 value: event.target.value,
+                validation: event.target.validation
             }
         }
-        
-        if (type === "email") {
-            if (!pattern.test(event.target.value)) setHasError(errorResponse)
-            else setHasError(null)
+
+        if (type === "text" || type === "email" || type === "password") {
+            if (!patternValidate.test(event.target.value)){
+                setHasError(errorResponse)
+                target.target.validation = true
+            } 
+            else {
+                setHasError(null)
+                target.target.validation = false
+            }
         }
 
         if (type === "number") {
@@ -76,8 +86,7 @@ export default function Input(props) {
                 }
                 <input
                     name={name}
-                    type={type !== "number" ? type : '' }
-                    pattern={pattern}
+                    type={type !== "number" ? type : 'text' }
                     className={['form-control rounded-3 py-2 px-3', inputClassName].join(" ")}
                     value={value}
                     placeholder={placeholder}
@@ -116,4 +125,6 @@ Input.propTypes = {
     range: propTypes.string,
     outerClassName: propTypes.string,
     inputClassName: propTypes.string,
+    pattern: propTypes.string,
+    validation: propTypes.bool,
 }
