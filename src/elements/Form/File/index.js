@@ -6,8 +6,6 @@ export default function File(props) {
 
     const {
         name,
-        value,
-        handleFile
     } = props
 
     const hiddenFileInput = React.useRef(null)
