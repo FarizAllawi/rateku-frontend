@@ -1,6 +1,5 @@
 import React from 'react'
 import Button from 'elements/Button'
-import propType from 'prop-types'
 
 import Icon from 'assets/images/rateku-logo-iconText.svg'
 

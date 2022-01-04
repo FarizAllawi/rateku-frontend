@@ -5,7 +5,6 @@ import './index.scss'
 export default function Tags(props) {
 
     const {
-        value,
         name,
         tags,
         placeholder,
