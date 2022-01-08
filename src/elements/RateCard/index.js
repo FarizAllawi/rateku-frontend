@@ -7,7 +7,6 @@ import SaveIcon from 'assets/images/save-icon.svg'
 import './index.scss'
 
 export default function RateCard({item}) {
-    console.log(item)
     
     const onClick = (event) => {
 
