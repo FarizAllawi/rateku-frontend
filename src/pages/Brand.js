@@ -72,12 +72,13 @@ export default class Brand extends Component {
                 <div className="container">
                     <div className="row align-items-center justify-content-center"
                          style={{height: "100vh"}}>
-                             <div className="col-12 col-lg-8 col-xl-5">
+                             <div className="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-5">
                                 <h2 className='text-white text-center'>Cari Influencers dalam waktu singkat.</h2>
                                 <form className="d-flex align-items-center" onSubmit={this.submit}>
                                     <div className="w-75">
                                         <Input  name="search"
                                                 prepend={<img src={SearchIcon} alt="icon-search"/>}
+                                                outerClassName="search-box"
                                                 inputClassName="text-white"
                                                 value={this.state.search} 
                                                 onChange={this.onChange}
@@ -85,9 +86,8 @@ export default class Brand extends Component {
                                     </div>
                                     <div className="w-auto" style={{ marginTop:"-1rem" }}>
                                         <Button className="button-username text-decoration-none border-0 rounded-3 text-center px-5 mt-n3"
-                                                style={{ paddingTop: "0.6rem", paddingBottom: "0.6rem"}}
+                                                style={{ paddingTop: "0.4rem", paddingBottom: "0.4rem", background: "#C3EBE2"}}
                                             type="submit"
-                                            isPrimary
                                         >
                                             Cari
                                         </Button>
