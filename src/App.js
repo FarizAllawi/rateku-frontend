@@ -7,6 +7,7 @@ import SignupInfluencer from "pages/SignupInfluencer"
 import SignupBrand from "pages/SignupBrand"
 import Influencer from 'pages/Influencer'
 import Brand from 'pages/Brand'
+import BrandSearch from 'pages/BrandSearch'
 // import Example from "pages/ExamplePage"
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/signup-brand" element={<SignupBrand/>}/>
         <Route path="/influencer" element={<Influencer/>}/>
         <Route path="/brand" element={<Brand/>}/>
+        <Route path="/brand/search/:search" element={<BrandSearch/>}/>
         {/* <Route path="/example" element={<Example/>}/> */}
       </Routes>
     </>

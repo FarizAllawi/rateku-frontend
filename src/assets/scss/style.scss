@@ -256,6 +256,10 @@ body {
         font-size: 0.75rem;
     }
 
+    .mobile {
+        width:100%;
+        background-color: $blue-900;
+    }
     
     @include media-breakpoint-up(xs) { 
         .logo-icon {
@@ -286,10 +290,6 @@ body {
             color:$gray-500;
             font-size:1rem;
         }  
-
-        .footer {
-            background-color: $blue-900;
-        }
 
 
     }
@@ -374,7 +374,6 @@ body {
         }
 
         .footer {
-            background-color: $blue-900;
             font-size:1rem !important;
         }
     }

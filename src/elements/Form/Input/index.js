@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import propTypes from 'prop-types'
 import "./index.scss"
 
@@ -20,6 +20,9 @@ export default function Input(props) {
     } = props
 
     const [HasError, setHasError] = useState(null)
+    const [isTyping, setIsTyping] = useState(false)
+    const selectWrapper = useRef(null)
+
     let patternValidate = ""
     if (type === "text") patternValidate = pattern !== "" ? new RegExp(pattern) : new RegExp("")
     if (type === "password") patternValidate = pattern !== "" ? new RegExp(pattern) : new RegExp("")
@@ -34,6 +37,8 @@ export default function Input(props) {
                 validation: event.target.validation
             }
         }
+        setIsTyping(true)
+
 
         if (type === "text" || type === "email" || type === "password") {
             if (!patternValidate.test(event.target.value)){
@@ -69,6 +74,31 @@ export default function Input(props) {
         }
     }
 
+    const handleKeyUp = (event) => {
+        if (event.keyCode === 9) {
+            setIsTyping(false)
+        }
+    }
+
+    function onTyping() {
+        setIsTyping( () => !isTyping)
+    }
+
+    function clickOutside(event) {
+        if (selectWrapper && !selectWrapper.current.contains(event.target)) {
+            setIsTyping(false)
+        }
+    }
+
+
+    useEffect(() => {
+        window.addEventListener("mousedown", clickOutside) 
+        
+        return () => {
+            window.removeEventListener("mousedown", clickOutside)
+        }
+    }, [])
+
     return (
         <div className={["input mb-3", outerClassName].join(" ")}>
             {
@@ -76,21 +106,22 @@ export default function Input(props) {
                     <label htmlFor="" className="label mb-1">{labelName}</label>
                 )
             }
-            <div className="input-group">
+            <div className={`input-group ${isTyping ? 'input-group-active' : ''}`} ref={selectWrapper} onClick={onTyping}>
                 {
                     prepend && (
-                        <div className="input-group-prepend bg-gray-900">
-                            <span className="input-group-text">{prepend}</span>
+                        <div className="input-group-prepend me-3">
+                            <span className="input-group-text pe-1">{prepend}</span>
                         </div>
                     )
                 }
                 <input
                     name={name}
                     type={type !== "number" ? type : 'text' }
-                    className={['form-control rounded-3 py-2 px-3', inputClassName].join(" ")}
+                    className={[`form-control rounded-3 py-2 px-3 ${prepend ? 'ms-4':''}`, inputClassName].join(" ")}
                     value={value}
                     placeholder={placeholder}
                     onChange={onChange}
+                    onKeyDown={handleKeyUp}
                 />
                 {
                     append && (
@@ -117,7 +148,7 @@ Input.propTypes = {
     name: propTypes.string.isRequired,
     value: propTypes.oneOfType([propTypes.string , propTypes.number]).isRequired,
     onChange: propTypes.func.isRequired,
-    prepend: propTypes.oneOfType([propTypes.number, propTypes.string]),
+    prepend: propTypes.oneOfType([propTypes.number, propTypes.string , propTypes.object]),
     append: propTypes.oneOfType([propTypes.number, propTypes.string]),
     type: propTypes.string,
     placeholder: propTypes.string,

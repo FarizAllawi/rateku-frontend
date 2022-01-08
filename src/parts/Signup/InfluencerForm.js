@@ -1,14 +1,34 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 // import Fade from 'react-reveal/Fade'
 
 import Input from "elements/Form/Input"
+import Tags from 'elements/Form/Tags'
 import Select from 'elements/Form/Select'
 import 'assets/scss/style.scss'
 
 export default function InfluencerForm(props) {
+    const [type, setType] = useState('desktop')
+
+    useEffect(() => {
+        // Detect virtual keyboard on mobile screen
+        window.addEventListener("resize", updateWindowDimensions.bind());
+        return () => {
+            window.removeEventListener("resize", updateWindowDimensions.bind());
+        };
+    })
+
+    function updateWindowDimensions() {
+        if (window.innerWidth < 768) {
+            setType(() => 'mobile' )
+        } else {
+            setType(() => 'desktop' )
+        }
+
+    }
+
     return (
         <div className="padding-page container px-4">
-            <div className="col-12 col-md-12 col-lg-12 col-xl-6">
+            <div className="col-12 col-md-12 col-lg-12 col-xl-7">
                 <div className="col-12">
                     {/* <Fade delay={900}> */}
                         <Input  name="instagram" 
@@ -20,11 +40,12 @@ export default function InfluencerForm(props) {
                 </div>
                 <div className="col-12">
                     {/* <Fade delay={900}> */}
-                        <Input  name="contentType" 
-                                value={props.data.contentType} 
-                                onChange={props.onChange}
-                                labelName="Tipe Konten"
-                                placeholder="Tipe Kontenmu"/>
+                        <Tags   name="contentType"
+                                tags={props.data.contentType}
+                                tagsClassName="text-white"
+                                tagsUpdated={tagsData => props.setContentType(tagsData)}
+                                placeholder="Tipe Konten"
+                        />
                     {/* </Fade> */}
                 </div>
 
@@ -35,7 +56,7 @@ export default function InfluencerForm(props) {
                 </div>
 
                 <div className="row" style={{position:"relative", zIndex:"2"}}>
-                    <div className="col-12 col-md-6 col-lg-6 col-xl-6" style={{position:"relative", zIndex:"3"}}>
+                    <div className={`${type === 'mobile' ? 'col-12':'w-50 pe-2'}`} style={{position:"relative", zIndex:"3"}}>
                         {/* <Fade delay={900}> */}
                             <Select name="knowRateku"
                                     value={props.data.knowRateku}
@@ -54,7 +75,7 @@ export default function InfluencerForm(props) {
                             </Select>
                         {/* </Fade> */}
                     </div>
-                    <div className="col-12 col-md-6 col-lg-6 col-xl-6">
+                    <div className={`${type === 'mobile' ? 'col-12':'w-50 ps-2'}`}>
                         {/* <Fade delay={900}> */}
                             <Input  name="referalCode" 
                                     value={props.data.referalCode} 

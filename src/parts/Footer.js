@@ -5,6 +5,9 @@ export default function Footer(props) {
 
     const [screenHeightResize, setScreenHeightResize] = useState(false)
     const [screenHeight] = useState(window.innerHeight)
+    const [screenWidth] = useState(window.innerWidth)
+    const type = screenWidth < 1200 ? "mobile" : "desktop"
+
     
     const className = [props.footerContainer]
     if (props.footerContainer) className.push(props.footerContainer)
@@ -28,9 +31,9 @@ export default function Footer(props) {
     }
 
     return (
-        <footer className={`${screenHeightResize ? 'd-none': 'footer fixed-bottom mt-auto py-3'} `} style={props.style}>
+        <footer className={`${screenHeightResize ? 'd-none': 'footer fixed-bottom mt-auto py-3 '}  ${type === 'mobile' ? 'mobile' : 'desktop'}`} style={props.style}>
             <div className={`container ${className.join(' ')}`}>
-                <p className="text-gray">
+                <p className={`text-gray `} style={{fontSize:"11pt"}}>
                     Blog | About <br/>
                     © 2021 | Rateku.com. All rights reserved.
                 </p>

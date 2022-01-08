@@ -30,7 +30,7 @@ export default class SignUpInfluencer extends Component {
             month:"",
             year: "",
             instagram: "",
-            contentType: "",
+            contentType: [],
             referalCode: "",
             knowRateku: ""
         }
@@ -45,12 +45,22 @@ export default class SignUpInfluencer extends Component {
         })
     }
 
+    setContentType = (contentType) => {
+        this.setState({
+            data: {
+                ...this.state.data,
+                contentType: contentType
+            }
+        })
+    }
+
     componentDidMount() {
         window.scroll(0, 0)
     }
 
     render() {
         const { data } = this.state
+        // console.log(data)
         const steps = {
             signup: {
                 title: "Signup Rateku",
@@ -64,7 +74,7 @@ export default class SignUpInfluencer extends Component {
                 // description: (<Fade left cascade delay={300}>Satu langkah lagi!</Fade>),
                 description: "Satu langkah lagi!",
                 content: (
-                    <InfluencerForm data={data} onChange={this.onChange}/>
+                    <InfluencerForm data={data} onChange={this.onChange} setContentType={this.setContentType}/>
                 )
             },
             completeInfluencer: {
@@ -85,7 +95,7 @@ export default class SignUpInfluencer extends Component {
                                 <Meta data={steps} current={CurrentStep} />
                                 <MainContent data={steps} current={CurrentStep} />
                                 <div className="stepper-controller  padding-page container px-4">
-                                    <div className="col-12 col-lg-12 col-xl-6">
+                                    <div className="col-12 col-lg-12 col-xl-7">
                                         <div className="row mt-5 mb-5 pb-5">
                                             {CurrentStep === "signup" && (
                                                 <Controller>
@@ -104,13 +114,13 @@ export default class SignUpInfluencer extends Component {
                                                     {
                                                         data.firstName !== "" &&
                                                         data.lastName !== "" &&
-                                                        // data.email !== "" &&
-                                                        // data.telephone !== "" &&
-                                                        // data.password !== "" &&
-                                                        // data.passwordConf !== "" &&
-                                                        // data.date !== "" &&
-                                                        // data.month !== "" &&
-                                                        // data.year !== "" &&
+                                                        data.email !== "" &&
+                                                        data.telephone !== "" &&
+                                                        data.password !== "" &&
+                                                        data.passwordConf !== "" &&
+                                                        data.date !== "" &&
+                                                        data.month !== "" &&
+                                                        data.year !== "" &&
                                                         data.gender !== "" && (
                                                             // <Fade delay={300}>
                                                                 <Button className="button-next fw-bold text-decoration-none text-center px-5 float-end border-0"

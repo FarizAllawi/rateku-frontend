@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 // import Fade from 'react-reveal/Fade'
 
 import Input from "elements/Form/Input"
@@ -6,6 +6,24 @@ import Select from 'elements/Form/Select'
 import 'assets/scss/style.scss'
 
 export default function BrandForm(props) {
+    const [type, setType] = useState('desktop')
+
+    useEffect(() => {
+        // Detect virtual keyboard on mobile screen
+        window.addEventListener("resize", updateWindowDimensions.bind());
+        return () => {
+            window.removeEventListener("resize", updateWindowDimensions.bind());
+        };
+    })
+
+    function updateWindowDimensions() {
+        if (window.innerWidth < 768) {
+            setType(() => 'mobile' )
+        } else {
+            setType(() => 'desktop' )
+        }
+
+    }
     return (
         <div className="padding-page container px-4">
             <div className="col-12 col-md-12 col-lg-12 col-xl-6">
@@ -18,7 +36,7 @@ export default function BrandForm(props) {
                     {/* </Fade> */}
                 </div>
                 <div className="row" style={{position:"relative", zIndex:"3"}}>
-                    <div className="col-md-12 col-lg-12 col-xl-6" style={{position:"relative", zIndex:"4"}}>
+                    <div className={`${type === 'mobile' ? 'col-12':'w-50 pe-2'}`} style={{position:"relative", zIndex:"4"}}>
                         {/* <Fade delay={900}> */}
                             <Select name="companyType"
                                     value={props.data.companyType}
@@ -32,7 +50,7 @@ export default function BrandForm(props) {
                             </Select>
                         {/* </Fade> */}
                     </div>
-                    <div className="col-md-12 col-lg-12 col-xl-6">
+                    <div className={`${type === 'mobile' ? 'col-12':'w-50 ps-2'}`}>
                         {/* <Fade delay={900}> */}
                             <Select name="companySize"
                                     value={props.data.companySize}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState,useEffect}from 'react'
 // import Fade from 'react-reveal/Fade'
 
 import Input from "elements/Form/Input"
@@ -6,12 +6,31 @@ import Select from 'elements/Form/Select'
 import 'assets/scss/style.scss'
 
 export default function SignUp(props) {
+    const [type, setType] = useState('desktop')
+
+    useEffect(() => {
+        // Detect virtual keyboard on mobile screen
+        window.addEventListener("resize", updateWindowDimensions.bind());
+        return () => {
+            window.removeEventListener("resize", updateWindowDimensions.bind());
+        };
+    })
+
+    function updateWindowDimensions() {
+        if (window.innerWidth < 768) {
+            setType(() => 'mobile' )
+        } else {
+            setType(() => 'desktop' )
+        }
+
+    }
+
     return (
         <div className="padding-page container px-4">
             
-                <div className="col-12 col-md-12 col-lg-12 col-xl-6">
+                <div className="col-12 col-md-12 col-lg-12 col-xl-7">
                     <div className="row">
-                        <div className="col-12 col-sm-6 col-lg-6 col-xl-6">
+                        <div className={`${type === 'mobile' ? 'col-12':'w-50 pe-2'}`}>
                             {/* <Fade delay={900}> */}
                                 <Input name="firstName" 
                                     value={props.data.firstName} 
@@ -19,7 +38,7 @@ export default function SignUp(props) {
                                     placeholder="Nama Depan"/>
                             {/* </Fade> */}
                         </div>
-                        <div className="col-12 col-sm-6 col-lg-6 col-xl-6">
+                        <div className={`${type === 'mobile' ? 'col-12':'w-50 ps-2'}`}>
                             {/* <Fade delay={900}> */}
                                 <Input name="lastName" 
                                     value={props.data.lastName} 
@@ -51,33 +70,35 @@ export default function SignUp(props) {
                         {/* </Fade> */}
                     </div>
 
-                    <div className="row">
-                        <div className="col-12 col-sm-6 col-lg-6 col-xl-">
-                            {/* <Fade delay={900}> */}
-                                <Input  type="password"
-                                        name="password" 
-                                        value={props.data.password} 
-                                        onChange={props.onChange}
-                                        placeholder="Kata Sandi"/>
-                            {/* </Fade> */}
-                        </div>
-                        <div className="col-12 col-sm-6 col-lg-6 col-xl-">
-                            {/* <Fade delay={900}> */}
-                                <Input  type="password"
-                                        name="passwordConf" 
-                                        value={props.data.passwordConf} 
-                                        onChange={props.onChange}
-                                        placeholder="Konfirmasi Kata Sandi"/>
-                            {/* </Fade> */}
+                    <div className="col-12">
+                        <div className="row">
+                            <div className={`${type === 'mobile' ? 'col-12':'w-50 pe-2'}`}>
+                                {/* <Fade delay={900}> */}
+                                    <Input  type="password"
+                                            name="password" 
+                                            value={props.data.password} 
+                                            onChange={props.onChange}
+                                            placeholder="Kata Sandi"/>
+                                {/* </Fade> */}
+                            </div>
+                            <div className={`${type === 'mobile' ? 'col-12':'w-50 ps-2'}`}>
+                                {/* <Fade delay={900}> */}
+                                    <Input  type="password"
+                                            name="passwordConf" 
+                                            value={props.data.passwordConf} 
+                                            onChange={props.onChange}
+                                            placeholder="Konfirmasi Kata Sandi"/>
+                                {/* </Fade> */}
+                            </div>
                         </div>
                     </div>
 
                     <div className="row" style={{ position:"relative",zIndex: "2",}}>
-                        <div className="col-12 col-sm-6 col-lg-6 col-xl-">
+                        <div className="col-12 col-sm-6 col-lg-6 pe-2">
                             <div className="row">
                                 {/* <Fade delay={900}> */}
                                     <label htmlFor="" className="label mb-1">Tanggal Lahir</label>
-                                    <div className="col-4">
+                                    <div className="col-3 pe-1">
                                         <Input  type="number"
                                                 name="date" 
                                                 value={props.data.date} 
@@ -87,7 +108,7 @@ export default function SignUp(props) {
                                                 errorResponse='isi dengan angka!'/>
                                     </div>
                                 {/* </Fade> */}
-                                <div className="col-4">
+                                <div className="col-3 ps-1 pe-1">
                                     {/* <Fade delay={900}> */}
                                         <Input  type="number"
                                                 name="month" 
@@ -98,7 +119,7 @@ export default function SignUp(props) {
                                                 errorResponse='isi dengan angka!'/>
                                     {/* </Fade> */}
                                 </div>
-                                <div className="col-4">
+                                <div className="col-6 ps-1">
                                     {/* <Fade delay={900}> */}
                                         <Input  type="number"
                                                 name="year" 
@@ -111,7 +132,7 @@ export default function SignUp(props) {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-12 col-sm-6 col-lg-6 col-xl-">
+                        <div className="col-12 col-sm-6 col-lg-6 ps-2">
                             {/* <Fade delay={900}> */}
                                 <Select name="gender"
                                         value={props.data.gender}
