@@ -47,7 +47,7 @@ export default class LandingPage extends Component {
                                 <div className="center-line col-lg-12 my-1">
                                     <div className="d-flex align-items-center">
                                         <div className="line float-start"></div>
-                                        <div className="text-white text-center" style={{ width: "10%"}}>OR</div>
+                                        <div className="text-white text-center" style={{ width: "10%"}}>or</div>
                                         <div className="line float-end"></div>
                                     </div>
                                 </div>

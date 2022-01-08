@@ -98,13 +98,14 @@ export default class BrandSearch extends Component {
                                 <Input  name="search"
                                         prepend={<img src={SearchIcon} alt="icon-search"/>}
                                         inputClassName="text-white"
+                                        outerClassName="search-box"
                                         value={this.state.search} 
                                         onChange={this.onChange}
                                         placeholder="Cari influencers berdasarkan tipe konten"/>
                             </div>
                             <div className="w-auto" style={{ marginTop:"-1rem" }}>
                                 <Button className="button-username text-decoration-none border-0 rounded-3 text-center px-5 mt-n3"
-                                        style={{ paddingTop: "0.7rem", paddingBottom: "0.7rem", background: "#C3EBE2"}}
+                                        style={{ paddingTop: "0.4rem", paddingBottom: "0.4rem", background: "#C3EBE2"}}
                                     type="submit"
                                 >
                                     Cari
@@ -125,6 +126,7 @@ export default class BrandSearch extends Component {
                                                 <div className="w-75">
                                                     <Input  name="search"
                                                             prepend={<img src={SearchIcon} alt="icon-search"/>}
+                                                            outerClassName="search-box"
                                                             inputClassName="text-white"
                                                             value={this.state.search} 
                                                             onChange={this.onChange}
@@ -132,14 +134,14 @@ export default class BrandSearch extends Component {
                                                 </div>
                                                 <div className="w-auto" style={{ marginTop:"-1rem" }}>
                                                     <Button className="button-username text-decoration-none border-0 rounded-3 text-center px-5 mt-n3"
-                                                            style={{ paddingTop: "0.7rem", paddingBottom: "0.7rem", background: "#C3EBE2"}}
+                                                            style={{ paddingTop: "0.4rem", paddingBottom: "0.4rem", background: "#C3EBE2"}}
                                                         type="submit"
                                                     >
                                                         Cari
                                                     </Button>
                                                 </div>
                                             </form>
-                                            <div className="flex-column flex-nowrap vh-100 overflow-auto text-white mt-4">
+                                            <div className="flex-column flex-nowrap vh-100 overflow-auto text-white mt-3">
                                                 <p className="h5 fw-bold"><span><FilterIcon width="16" height="16" style={{marginRight:"1.5rem", marginBottom:"0.2rem"}}/></span>SEARCH FILTER</p>
                                                 <p className="h6 fw-bold mt-4">City</p>
                                                 <div className="col-12 mt-3">

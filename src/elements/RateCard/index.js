@@ -17,7 +17,7 @@ export default function RateCard({item}) {
     }
 
     function kFormatter(num) {
-        return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + ' K' : Math.sign(num)*Math.abs(num)
+        return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + ' K ' : Math.sign(num)*Math.abs(num)
     }
 
 
@@ -39,7 +39,7 @@ export default function RateCard({item}) {
                     }
                 </div>
                 <p className="mt-3 mb-0 text-gray" style={{ fontSize: "10pt"}}><span><img src={InstagramIcon} className='me-2' width="14" height="14" alt='icon-instagram'/>@{item.instagram}</span></p>
-                <p className="text-gray mb-0" style={{ fontSize: "10pt"}}>{kFormatter(item.followers)}| ER {item.er}</p>
+                <p className="text-gray mb-0" style={{ fontSize: "10pt"}}><span>{kFormatter(item.followers)} | ER {item.er}</span></p>
             </div>
             
             <div className="w-100 action-card px-3 py-3">

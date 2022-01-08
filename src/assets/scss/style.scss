@@ -260,6 +260,59 @@ body {
         width:100%;
         background-color: $blue-900;
     }
+
+    .search-box {
+        .input-group {
+            background-color: transparent;
+        }
+
+        .input-group {
+            background-color: transparent;
+            border: 0.5px solid #FFFFFF;
+            border-radius: 4px !important;
+    
+            .input-group-text {
+                pointer-events: none;
+                background-color: transparent;
+                color:$gray-600;
+                border: 0;
+                cursor: auto;
+                padding:0;
+                width: 45px;
+                height: 35px;
+                display: flex;
+                justify-content: center;
+                position:absolute;
+                z-index:900;
+            }
+    
+            .form-control {
+                outline: 0;
+                box-shadow: none;
+                background-color: transparent;
+                border: 0;
+                padding: 0.575rem 14px;
+                height: 35px;
+                color:white;
+                ::placeholder {
+                    color:$gray-600;
+                }
+            }
+        }
+    
+        .input-group-active{
+            border: 0.5px solid white;
+            color:white;
+        }
+    
+        .error-helper {
+            position:absolute;
+            margin-top: -0.1rem;
+            color: $red;
+            padding: 0 2px;
+            font-size: 0.8rem;
+        }
+    }
     
     @include media-breakpoint-up(xs) { 
         .logo-icon {
@@ -448,8 +501,8 @@ body {
             }
 
             .button-username-brand {
-                width: 13% !important;
-                padding-top: 1.5rem;
+                width: 15% !important;
+                padding-top: 1rem;
             }
         }
         

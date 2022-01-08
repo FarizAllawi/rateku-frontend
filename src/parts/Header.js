@@ -102,7 +102,7 @@ export default function Header(props) {
                             <div className="w-auto button-username-brand">
                                 <li className={`float-end nav-item `}>
                                     <Button className="button-username text-decoration-none border-0 text-center text-white mb-4"
-                                            style={{ paddingTop: "0.6rem", paddingBottom: "0.6rem", paddingLeft:"2.5rem", paddingRight: "2.5rem"}}
+                                            style={{ marginTop:"0.3rem", paddingTop: "0.4rem", paddingBottom: "0.4rem", paddingLeft:"2.5rem", paddingRight: "2.5rem"}}
                                             type="button"
                                             isRounded
                                     >
@@ -117,25 +117,27 @@ export default function Header(props) {
                 <header className="header fixed-top mb-auto">
                     <div className="container">
                         <nav className="navbar navbar-expand-lg navbar-light">
-                            <div className="w-auto">
+                            <div className="w-50">
                                 <div className='align-items-center justify-content-center'>
                                     <div className="col-12">
                                         <Logo className="header-icon"/> <span className="text-white ms-n1">for Brand</span> 
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-auto">
-                                <div className={`float-start`}>
-                                    <Button className="button-username text-decoration-none border-0 text-center text-white"
-                                            style={{ paddingTop: "0.5rem", paddingBottom: "0.5rem", paddingLeft:"1.5rem", paddingRight: "1.5rem", fontSize:"10pt"}}
-                                            type="button"
-                                            isRounded
-                                    >
-                                        { fullName }
-                                    </Button>
-                                </div>
-                                <div className={`float-end mt-1`} data-bs-toggle="collapse" onClick={()=> {toggleButton()}} style={{marginLeft:"0.5rem"}}>
-                                    <img src={SearchIcon} alt="icon-search" width="24" height="24"/>
+                            <div className="w-50">
+                                <div className='d-flex justify-content-end'>
+                                    <div className={`float-start`}>
+                                        <Button className="button-username text-decoration-none border-0 text-center text-white"
+                                                style={{ paddingTop: "0.5rem", paddingBottom: "0.5rem", paddingLeft:"1.5rem", paddingRight: "1.5rem", fontSize:"10pt"}}
+                                                type="button"
+                                                isRounded
+                                        >
+                                            { fullName }
+                                        </Button>
+                                    </div>
+                                    <div className={`float-end mt-1`} data-bs-toggle="collapse" onClick={()=> {toggleButton()}} style={{marginLeft:"0.5rem"}}>
+                                        <img src={SearchIcon} alt="icon-search" width="24" height="24"/>
+                                    </div>
                                 </div>
                             </div>
                         </nav>   
