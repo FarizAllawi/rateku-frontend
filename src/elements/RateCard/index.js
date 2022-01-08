@@ -17,7 +17,7 @@ export default function RateCard({item}) {
     }
 
     function kFormatter(num) {
-        return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
+        return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + ' K' : Math.sign(num)*Math.abs(num)
     }
 
 
@@ -28,7 +28,7 @@ export default function RateCard({item}) {
                     <img src={item.profilePic} alt={`${item.firstName}-${item.lastName}`} />
                 </div>
                 <p className="fs-6 fw-bold mt-2 mb-0 text-white">{item.firstName} {item.lastName} <span><img src={FemaleIcon} className='ms-2 mb-1' width="13" height="13" alt='icon-gender-female'/></span></p>
-                <p className="text-gray mb-0" style={{ fontSize: "8pt"}}>{item.city}, {item.country}</p>
+                <p className="text-gray mb-0" style={{ fontSize: "10pt"}}>{item.city}, {item.country}</p>
                 <div className="row px-2 mt-3">
                     {
                         item.contentType?.map((content,index) =>{
@@ -38,7 +38,7 @@ export default function RateCard({item}) {
                         })
                     }
                 </div>
-                <p className="mt-3 mb-0 text-gray" style={{ fontSize: "10pt"}}><span><img src={InstagramIcon} className='me-2 mb-1' width="14" height="14" alt='icon-instagram'/>@{item.instagram}</span></p>
+                <p className="mt-3 mb-0 text-gray" style={{ fontSize: "10pt"}}><span><img src={InstagramIcon} className='me-2' width="14" height="14" alt='icon-instagram'/>@{item.instagram}</span></p>
                 <p className="text-gray mb-0" style={{ fontSize: "10pt"}}>{kFormatter(item.followers)}| ER {item.er}</p>
             </div>
             

@@ -88,7 +88,7 @@ export default function Header(props) {
                             <div className="w-25">
                                 <Logo className="header-icon"/> <span className="text-white ms-n1">for Brand</span> 
                             </div>
-                            <div className="w-75 ps-3">
+                            <div className="w-75 ps-3 search-brand">
                                 {
                                     items?.map((item , index) => {
                                         return (
@@ -99,8 +99,8 @@ export default function Header(props) {
                                     })
                                 }
                             </div>
-                            <div className="w-auto">
-                                <li className={`float-end nav-item ${getNavLinkClass("/")}`}>
+                            <div className="w-auto button-username-brand">
+                                <li className={`float-end nav-item `}>
                                     <Button className="button-username text-decoration-none border-0 text-center text-white mb-4"
                                             style={{ paddingTop: "0.6rem", paddingBottom: "0.6rem", paddingLeft:"2.5rem", paddingRight: "2.5rem"}}
                                             type="button"

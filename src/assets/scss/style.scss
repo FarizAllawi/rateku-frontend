@@ -376,6 +376,7 @@ body {
         .footer {
             font-size:1rem !important;
         }
+        
     }
     @include media-breakpoint-up(xl) { 
         .padding-page {
@@ -439,6 +440,17 @@ body {
                 font-size:1rem !important;
             }
 
+        }
+
+        @-moz-document url-prefix() {
+            .search-brand{
+                padding-top: 1rem;
+            }
+
+            .button-username-brand {
+                width: 13% !important;
+                padding-top: 1.5rem;
+            }
         }
         
     }
