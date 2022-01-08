@@ -61,23 +61,23 @@ export default function Tags(props) {
         props.tagsUpdated(tagsTemp)
     }
 
-    function clickOutside(event) {
-        const trimmedInput = input.trim();
-        if (selectWrapper && !selectWrapper.current.contains(event.target) && trimmedInput.length && !tags.includes(trimmedInput)) {
-            event.preventDefault();
-            setTags(prevState => [...prevState, trimmedInput]);
-            setInput('');
-        }
-        setIsTyping( () => false)
-    }
-
     useEffect(() => {
         window.addEventListener("mousedown", clickOutside)
+
+        function clickOutside(event) {
+            const trimmedInput = input.trim();
+            if (selectWrapper && !selectWrapper.current.contains(event.target) && trimmedInput.length && !tags.includes(trimmedInput)) {
+                event.preventDefault();
+                setTags(prevState => [...prevState, trimmedInput]);
+                setInput('');
+            }
+            setIsTyping( () => false)
+        }
 
         return () => {
             window.removeEventListener("mousedown", clickOutside)
         }
-    }, [input, isTyping])
+    }, [input, tags])
     
 
     return (
