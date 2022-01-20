@@ -3,7 +3,6 @@ import propTypes from 'prop-types'
 
 import Button from 'elements/Button'
 import Logo from 'parts/icon/iconLogoText'
-import SearchIcon from 'assets/images/search-icon.svg'
 
 
 export default function Header(props) {
@@ -12,7 +11,8 @@ export default function Header(props) {
         fullName,
         type,
         content,
-        children
+        children,
+        className
     } = props
 
     const [toggle, setToggle] = useState(false) 
@@ -35,11 +35,10 @@ export default function Header(props) {
     }
 
     
-
     return (
         (content === "influencer") ? (
             (type === "desktop") ? (
-                <header className="header fixed-top mb-auto">
+                <header className={[`header fixed-top mb-auto`, className].join(" ")}>
                     <div className="container">
                         <nav className="navbar navbar-expand-lg navbar-light">
                                 <Logo className="header-icon"/> <span className="text-white ms-n1">for Influencer</span> 
@@ -82,7 +81,7 @@ export default function Header(props) {
             )
         ) : (
             (type === "desktop") ? (
-                <header className="header fixed-top mb-auto">
+                <header className={[`header fixed-top mb-auto`, className].join(" ")}>
                     <div className="container">
                         <nav className="navbar navbar-expand-lg navbar-light p-0">
                             <div className="w-25">
@@ -114,30 +113,31 @@ export default function Header(props) {
                     </div>
                 </header>
             ) : (
-                <header className="header fixed-top mb-auto">
+                <header className={[`header fixed-top mb-auto`, className].join(" ")}>
                     <div className="container">
-                        <nav className="navbar navbar-expand-lg navbar-light">
-                            <div className="w-50">
-                                <div className='align-items-center justify-content-center'>
-                                    <div className="col-12">
-                                        <Logo className="header-icon"/> <span className="text-white ms-n1">for Brand</span> 
+                        <nav className="col-12">
+
+                            <div className="row">
+                                <div className="col-8">
+                                    <span className="text-white ms-n1"><Logo className="header-icon"/> for Brand</span>
+                                </div>
+                                <div className="col-4">
+                                    <div className="profile rounded-cicle float-end" style={{ marginTop: "0.6rem"}}>
+                                        <img src="http://placeimg.com/640/480/fashion" alt="user-profile" />
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-50">
-                                <div className='d-flex justify-content-end'>
-                                    <div className={`float-start`}>
-                                        <Button className="button-username text-decoration-none border-0 text-center text-white"
-                                                style={{ paddingTop: "0.5rem", paddingBottom: "0.5rem", paddingLeft:"1.5rem", paddingRight: "1.5rem", fontSize:"10pt"}}
-                                                type="button"
-                                                isRounded
-                                        >
-                                            { fullName }
-                                        </Button>
-                                    </div>
-                                    <div className={`float-end mt-1`} data-bs-toggle="collapse" onClick={()=> {toggleButton()}} style={{marginLeft:"0.5rem"}}>
-                                        <img src={SearchIcon} alt="icon-search" width="24" height="24"/>
-                                    </div>
+                            <div className="row">
+                                <div className="col-12 col-lg-12">
+                                {
+                                    items?.map((item , index) => {
+                                        return (
+                                            <div className="d-flex flex-row" key={index}>
+                                                {item.props.children}
+                                            </div>
+                                        )
+                                    })
+                                }
                                 </div>
                             </div>
                         </nav>   
@@ -160,4 +160,5 @@ Header.propTypes = {
     type: propTypes.string,
     content: propTypes.string,
     firstName: propTypes.string,
+    className: propTypes.string
 }

@@ -1,10 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import propTypes from 'prop-types'
 
 export default function Footer(props) {
 
-    const [screenHeightResize, setScreenHeightResize] = useState(false)
-    const [screenHeight] = useState(window.innerHeight)
     const [screenWidth] = useState(window.innerWidth)
     const type = screenWidth < 1200 ? "mobile" : "desktop"
 
@@ -12,26 +10,8 @@ export default function Footer(props) {
     const className = [props.footerContainer]
     if (props.footerContainer) className.push(props.footerContainer)
 
-    useEffect(() => {
-        // Detect virtual keyboard on mobile screen
-        window.addEventListener("resize", updateWindowDimensions.bind());
-        return () => {
-            window.removeEventListener("resize", updateWindowDimensions.bind());
-        };
-    })
-
-    function updateWindowDimensions() {
-        if (window.innerWidth < 1024  && window.innerHeight < screenHeight) {
-            setScreenHeightResize(() => true )
-        }
-
-        if (window.innerWidth < 1024 && window.innerHeight === screenHeight) {
-            setScreenHeightResize(() =>  false )
-        }
-    }
-
     return (
-        <footer className={`${screenHeightResize ? 'd-none': 'footer fixed-bottom mt-auto py-3 '}  ${type === 'mobile' ? 'mobile' : 'desktop'}`} style={props.style}>
+        <footer className={`${type === 'mobile' ? 'footer mobile': 'footer desktop fixed-bottom '} mt-auto py-3`} style={props.style}>
             <div className={`container ${className.join(' ')}`}>
                 <p className={`text-gray `} style={{fontSize:"11pt"}}>
                     Blog | About <br/>

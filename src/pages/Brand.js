@@ -73,7 +73,7 @@ export default class Brand extends Component {
                     <div className="row align-items-center justify-content-center"
                          style={{height: "100vh"}}>
                              <div className="col-12 col-sm-10 col-md-8 col-lg-7 col-xl-5">
-                                <h2 className='text-white text-center'>Cari Influencers dalam waktu singkat.</h2>
+                                <h2 className='text-white text-center mb-4'>Cari Influencers dalam waktu singkat.</h2>
                                 <form className="d-flex align-items-center" onSubmit={this.submit}>
                                     <div className="w-75">
                                         <Input  name="search"

@@ -87,7 +87,7 @@ export default class SignupBrand extends Component {
                                 <MainContent data={steps} current={CurrentStep} />
                                 <div className="stepper-controller  padding-page container px-4">
                                     <div className="col-12 col-lg-12 col-xl-6">
-                                        <div className="row mt-5 mb-5 pb-5">
+                                        <div className="row mt-5 mb-5">
                                         {CurrentStep === "signup" && (
                                                 <Controller>
                                                     <div className="col-6 px-1">
@@ -132,7 +132,7 @@ export default class SignupBrand extends Component {
 
                                             {CurrentStep === "brandForm" && (
                                                 <Controller>
-                                                    <div className="col-6 px-0 pt-n5" style={{height: "25vh"}}>
+                                                    <div className="col-6 px-0 pt-n5">
                                                         {/* <Fade delay={1200}> */}
                                                             <Button className="btn btn-link text-decoration-none float-start"
                                                                     type="button"
@@ -143,13 +143,13 @@ export default class SignupBrand extends Component {
                                                             </Button>
                                                         {/* </Fade> */}
                                                     </div>
-                                                    <div className="col-6 pt-n5" style={{height: "25vh"}}>
+                                                    <div className="col-6 pt-n5">
                                                     {
                                                          data.instagram !== "" &&
                                                          data.konten !== "" &&
                                                          data.knowRateku !== "" && (
                                                             // <Fade delay={300}>
-                                                                <Button className="button-next fw-bold text-decoration-none text-center px-5 float-end border-0"
+                                                                <Button className="button-next fw-bold text-decoration-none text-centerfloat-end border-0"
                                                                         type="button"
                                                                         isPrimary 
                                                                         isRounded
@@ -166,9 +166,8 @@ export default class SignupBrand extends Component {
                                             )}
                                         </div>
                                     </div>
-                                    <div style={{height:"8vh"}}></div>
                                     
-                                    <Footer footerContainer="px-4"/>
+                                    <Footer/>
                                 </div>
                             </>
                         )

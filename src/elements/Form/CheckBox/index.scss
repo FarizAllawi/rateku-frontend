@@ -1,23 +1,46 @@
 @import '../../../assets/scss/style.scss';
 
 input[type="checkbox"] {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    background-color: $gray-800;
-    border: 0.5px solid $gray-600;
-    width: 1px;
-  }
-  
-  .checkbox {
-    display: inline-block;
-    height: 20px;
-    width: 20px;
-    background-color: $gray-800;
-    border: 0.5px solid $gray-600;
-    margin-right: 4px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  background-color: $gray-800;
+  border: 0.5px solid $gray-600;
+  width: 1px;
+}
+
+.checkbox {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  background-color: $gray-800;
+  border: 0.5px solid $gray-600;
+  margin-right: 4px;
+}
+
+  @include media-breakpoint-up(lg) { 
+    input[type="checkbox"] {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      background-color: $gray-800;
+      border: 0.5px solid $gray-600;
+      width: 1px;
+    }
+    
+    .checkbox {
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      background-color: $gray-800;
+      border: 0.5px solid $gray-600;
+      margin-right: 4px;
+    }
   }
   

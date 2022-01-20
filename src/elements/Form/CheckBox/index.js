@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import propTypes from 'prop-types'
 import {
     animated,
@@ -42,17 +42,21 @@ export default function Checkbox(props) {
     [0, 0.1]
   );
 
+  useEffect(() => {
+    value === true ? setIsChecked(true) : setIsChecked(false)
+  },[value])
+
   const onChange = (event) => {
     setIsChecked(!isChecked)
     props.checked(!isChecked)
   }
+
 
   return (
     <label>
       <input
         type="checkbox"
         name={name}
-        value={value}
         onChange={onChange}
       />
       <animated.svg
@@ -83,12 +87,12 @@ export default function Checkbox(props) {
 }
 
 Checkbox.defaultProps = {
-  value:"",
   labelName: "Check Box"
 }
 
 Checkbox.propTypes = {
   name: propTypes.string.isRequired,
   labelName: propTypes.string.isRequired,
+  value: propTypes.bool,
   // checked: propTypes.func.isRequired,
 }

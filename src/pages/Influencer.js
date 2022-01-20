@@ -131,7 +131,7 @@ export default class Influencer extends Component {
 
         return (
             <>
-                <Header type={type} content="influencer" fullName={data.firstName+' '+data.lastName} collapse={collapseStatus => this.setState({ collapse: collapseStatus})}/>
+                <Header type={type} content="influencer" className='has-shadow' fullName={data.firstName+' '+data.lastName} collapse={collapseStatus => this.setState({ collapse: collapseStatus})}/>
                 <div className="container">
                     <div className="row">
                         {
@@ -533,7 +533,7 @@ export default class Influencer extends Component {
 
                                                     ))
                                                 }
-                                                <Button className="btn btn-link text-decoration-none p-0" type="button" style={{ marginBottom:"5rem"}} onClick={this.addRateCardReels}>
+                                                <Button className="btn btn-link text-decoration-none p-0" type="button" style={{ marginBottom:"3rem"}} onClick={this.addRateCardReels}>
                                                     <img src={IconPlus} className="m-0 me-2" width="24" height="24" alt="plus-icon" /> Tambah Option
                                                 </Button>
                                             </div>

@@ -27,7 +27,7 @@ export default class LandingPage extends Component {
                     </Fade> */}
                     
                     {/* <Fade left delay={900}> */}
-                        <div className="col-xl-12 mb-5">
+                        <div className="col-xl-12 col-11 mb-5">
                             {/* <Fade left cascade delay={1200}> */}
                                 <h1 className="text-caption fw-bold fs-1 mt-3 mb-4 text-white">Gabung Rateku sekarang!</h1>
                             {/* </Fade> */}
@@ -70,7 +70,7 @@ export default class LandingPage extends Component {
                                 <div className='text-question text-white fw-bold fs-3'>
                                     Sudah punya akun?
                                 </div>
-                                <Button className="button-signin py-2 px-5 mb-5 fw-bold text-decoration-none text-center btn-border btn-hover"
+                                <Button className="button-signin py-2 fw-bold text-decoration-none text-center btn-border btn-hover"
                                         type="link"
                                         href="/signin" 
                                         isLarge 
@@ -78,12 +78,12 @@ export default class LandingPage extends Component {
                                 >
                                     Masuk
                                 </Button>
-                                <div style={{height:"15vh"}}></div>
+                                {/* <div style={{height:"15vh"}}></div> */}
                             </div>
                         </div>
                     {/* </Fade> */}
                     
-                    <Footer footerContainer="px-4"/>
+                    <Footer />
                 </div>
             </>
         )
