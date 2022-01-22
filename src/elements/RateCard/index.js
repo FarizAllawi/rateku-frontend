@@ -27,11 +27,13 @@ export default function RateCard({item}) {
     return (
         <div className="rate-card w-100">
             
+    
             <div className="image-container">
                 <div className="image-card">
                     <img src={item.profilePic} alt={`${item.firstName}-${item.lastName}`} />
                 </div>
             </div>
+            
             <div className='content-container'>
                 <p className="text-name fw-bold mt-2 mb-0 text-white">{item.firstName} {item.lastName} <span><img src={FemaleIcon} className={type === 'mobile' ?  'ms-2' : 'ms-2 mb-1' } width={type === 'mobile' ? '10': '13'} height={type === 'mobile' ? '10': '13'} alt='icon-gender-female'/></span></p>
                 <p className="text-gray mb-0 text-location">{item.city}, {item.country}</p>
