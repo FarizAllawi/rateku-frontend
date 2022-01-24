@@ -86,7 +86,7 @@ export default class SignupBrand extends Component {
                                 <Meta data={steps} current={CurrentStep} />
                                 <MainContent data={steps} current={CurrentStep} />
                                 <div className="stepper-controller  padding-page container px-4">
-                                    <div className="col-12 col-lg-12 col-xl-6">
+                                    <div className="col-12 col-lg-12 col-xl-6 mb-5 pb-5">
                                         <div className="row mt-5 mb-5">
                                         {CurrentStep === "signup" && (
                                                 <Controller>
