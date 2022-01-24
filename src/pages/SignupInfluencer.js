@@ -91,7 +91,7 @@ export default class SignUpInfluencer extends Component {
                 <Stepper steps={steps}>
                     {
                         (prevStep, nextStep, CurrentStep, steps) => (
-                            <>
+                            <div className='no-scroll-bar'>
                                 <Meta data={steps} current={CurrentStep} />
                                 <MainContent data={steps} current={CurrentStep} />
                                 <div className="stepper-controller  padding-page container px-4">
@@ -196,9 +196,9 @@ export default class SignUpInfluencer extends Component {
                                             )}
                                         </div>
                                     </div>
-                                    <Footer />
+                                    <Footer desktopClassName="px-4"/>
                                 </div>
-                            </>
+                            </div>
                         )
                     }
                 </Stepper>

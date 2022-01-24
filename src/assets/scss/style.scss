@@ -52,10 +52,22 @@
 @import "utilities/api";
 // scss-docs-end import-stack
 
-
 body {
     background-color: $blue-900;
     font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    
+    .no-scroll-bar{
+        overflow-y: scroll; /* Add the ability to scroll */
+    }
+
+    .no-scroll-bar::-webkit-scrollbar{
+        display: none;
+    }
+
+    .no-scroll-bar{
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
 
     .label {
         color: $gray-400;
@@ -90,7 +102,7 @@ body {
     
     .line {
         width: 45%;
-        height: 0.01rem;
+        height: 0.1rem;
         background-color: white;
     }
 

@@ -7,8 +7,9 @@ export default function Footer(props) {
     const type = screenWidth < 1200 ? "mobile" : "desktop"
 
     
-    const className = [props.footerContainer]
-    if (props.footerContainer) className.push(props.footerContainer)
+    const className = []
+    if (type === 'desktop' && props.desktopClassName) className.push(props.desktopClassName)
+    if (type === 'mobile' && props.mobileClassName) className.push(props.mobileClassName)
 
     return (
         <footer className={`${type === 'mobile' ? 'footer mobile': 'footer desktop fixed-bottom '} mt-auto py-3`} style={props.style}>
@@ -23,5 +24,6 @@ export default function Footer(props) {
 }
 
 Footer.prototypes = {
-    footerContainer: propTypes.string,
+    desktopClassName: propTypes.string,
+    mobileClassName:propTypes.string,
 }

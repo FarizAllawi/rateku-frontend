@@ -12,7 +12,6 @@ import BrandSearch from 'pages/BrandSearch'
 
 function App() {
   return (
-    <>
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
         <Route path="/signin" element={<Signin/>}/>
@@ -23,7 +22,6 @@ function App() {
         <Route path="/brand/search/:search" element={<BrandSearch/>}/>
         {/* <Route path="/example" element={<Example/>}/> */}
       </Routes>
-    </>
   );
 }
 

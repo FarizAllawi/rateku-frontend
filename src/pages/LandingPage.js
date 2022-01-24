@@ -15,7 +15,7 @@ export default class LandingPage extends Component {
                 <div className="padding-page container px-4">
                     {/* <Fade delay={300}>
                         <Slide delay={600} bottom> */}
-                            <div className="logo col-xl-12">
+                            <div className="logo col-xl-12 mt-3">
                                 <div className="col-lg-12">
                                     <LogoIcon/>
                                 </div>
@@ -83,7 +83,7 @@ export default class LandingPage extends Component {
                         </div>
                     {/* </Fade> */}
                     
-                    <Footer />
+                    <Footer desktopClassName="px-4" />
                 </div>
             </>
         )
