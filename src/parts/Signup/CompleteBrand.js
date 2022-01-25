@@ -5,9 +5,9 @@ import Button from 'elements/Button'
 
 export default function CompleteBrand(props) {
     return (
-        <div className="padding-page container px-4 mb-5">
+        <>
             <div className="col-12 col-md-12 col-lg-12 col-xl-6">
-                <div class="d-flex align-items-center" style={{height: "45vh"}}>
+                <div class="d-flex align-items-center" style={{height: "40vh"}}>
                     <div className="row">
                         <div className="col-md-12">
                             {/* <Fade left cascade delay={300}> */}
@@ -30,7 +30,6 @@ export default function CompleteBrand(props) {
                     </div>
                 </div>
             </div>
-            <div style={{height:"5vh"}}></div>
-        </div>
+        </>
     )
 }

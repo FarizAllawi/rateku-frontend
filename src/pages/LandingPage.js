@@ -11,7 +11,7 @@ export default class LandingPage extends Component {
 
     render() {
         return (
-            <>
+            <div className="d-flex align-items-center" style={{ minHeight: "100vh"}}>
                 <div className="padding-page container px-4">
                     {/* <Fade delay={300}>
                         <Slide delay={600} bottom> */}
@@ -32,7 +32,7 @@ export default class LandingPage extends Component {
                                 <h1 className="text-caption fw-bold fs-1 mt-3 mb-4 text-white">Gabung Rateku sekarang!</h1>
                             {/* </Fade> */}
                             
-                            <div className="mt-2 mb-2 d-grid gap-2">
+                            <div className="mt-2 mb-2 d-grid gap-2 ">
 
                                 <Button className="button-signup fw-bold text-decoration-none text-center"
                                         type="link"
@@ -81,11 +81,10 @@ export default class LandingPage extends Component {
                                 {/* <div style={{height:"15vh"}}></div> */}
                             </div>
                         </div>
+                        <Footer/>
                     {/* </Fade> */}
-                    
-                    <Footer desktopClassName="px-4" />
                 </div>
-            </>
+            </div>
         )
     }
 }
