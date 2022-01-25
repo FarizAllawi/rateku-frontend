@@ -6,7 +6,7 @@ import Button from 'elements/Button'
 export default function CompleteBrand(props) {
     return (
         <>
-            <div className="col-12 col-md-12 col-lg-12 col-xl-6">
+            <div className="col-12 col-md-12 col-lg-12 col-xl-6" style={{marginBottom:"14.05rem"}}>
                 <div class="d-flex align-items-center" style={{height: "40vh"}}>
                     <div className="row">
                         <div className="col-md-12">

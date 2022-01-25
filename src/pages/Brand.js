@@ -95,7 +95,13 @@ export default class Brand extends Component {
                                 </form>
                              </div>
                     </div>
-                    <Footer style={{ zIndex: "9999"}} />
+                    {
+                        (type === 'desktop') ? (
+                            <Footer fixedFooter  desktopClassName="container" style={{ zIndex: "9999"}} />
+                        ) : (
+                            <Footer style={{ zIndex: "9999"}} />
+                        )
+                    }
                 </div>
             </>
         )

@@ -57,6 +57,8 @@ body {
     font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     
     .no-scroll-bar{
+        width: auto; 
+        height: auto;
         overflow-y: scroll; /* Add the ability to scroll */
     }
 
@@ -449,8 +451,6 @@ body {
             border-radius:5rem !important;
             font-size: 2rem;
         }
-
-        
 
         .stepper-controller {
             height: 0 !important;

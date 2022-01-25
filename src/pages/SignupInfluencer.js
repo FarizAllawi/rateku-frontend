@@ -92,111 +92,124 @@ export default class SignUpInfluencer extends Component {
                     {
                         (prevStep, nextStep, CurrentStep, steps) => (
                             <div className='no-scroll-bar'>
-                                <Meta data={steps} current={CurrentStep} />
-                                <MainContent data={steps} current={CurrentStep} />
-                                <div className="stepper-controller  padding-page container px-4">
-                                    <div className="col-12 col-lg-12 col-xl-7 mb-5 pb-5">
-                                        <div className="row mt-5 mb-5">
-                                            {CurrentStep === "signup" && (
-                                                <Controller>
-                                                    <div className="col-6 px-0">
-                                                        {/* <Fade delay={1200}> */}
-                                                            <Button className="btn btn-link text-decoration-none float-start"
-                                                                    type="link"
-                                                                    href="/"
-                                                                    isLarge 
-                                                            >
-                                                                {"< Kembali"}
-                                                            </Button>
-                                                        {/* </Fade> */}
+                                <div className='padding-page container px-4'>
+                                    <Meta data={steps} current={CurrentStep} />
+                                    <MainContent data={steps} current={CurrentStep} />
+                                        {CurrentStep === "signup" && (
+                                            <div className="stepper-controller">
+                                                <div className="col-12 col-lg-12 col-xl-6">
+                                                    <div className="row mt-5">
+                                                        <Controller>
+                                                            <div className="col-6 px-0">
+                                                                {/* <Fade delay={1200}> */}
+                                                                    <Button className="btn btn-link text-decoration-none float-start"
+                                                                            type="link"
+                                                                            href="/"
+                                                                            isLarge 
+                                                                    >
+                                                                        {"< Kembali"}
+                                                                    </Button>
+                                                                {/* </Fade> */}
+                                                            </div>
+                                                            <div className="col-6">
+                                                            {
+                                                                data.firstName !== "" &&
+                                                                data.lastName !== "" &&
+                                                                data.email !== "" &&
+                                                                data.telephone !== "" &&
+                                                                data.password !== "" &&
+                                                                data.passwordConf !== "" &&
+                                                                data.date !== "" &&
+                                                                data.month !== "" &&
+                                                                data.year !== "" &&
+                                                                data.gender !== "" && (
+                                                                    // <Fade delay={300}>
+                                                                        <Button className="button-next fw-bold text-decoration-none text-center px-5 float-end border-0"
+                                                                                type="button"
+                                                                                isPrimary 
+                                                                                isRounded
+                                                                                isLarge 
+                                                                                onClick={nextStep}
+                                                                        >
+                                                                            Lanjutkan
+                                                                        </Button>
+                                                                    // </Fade>
+                                                                )
+                                                            }
+                                                            </div>
+                                                        </Controller>
                                                     </div>
-                                                    <div className="col-6">
-                                                    {
-                                                        data.firstName !== "" &&
-                                                        data.lastName !== "" &&
-                                                        data.email !== "" &&
-                                                        data.telephone !== "" &&
-                                                        data.password !== "" &&
-                                                        data.passwordConf !== "" &&
-                                                        data.date !== "" &&
-                                                        data.month !== "" &&
-                                                        data.year !== "" &&
-                                                        data.gender !== "" && (
+                                                </div>
+                                            </div>
+                                        )}
+                                        
+
+                                        {CurrentStep === "influencerForm" && (
+                                            <div className="stepper-controller" style={{marginBottom: "9.5rem"}}>
+                                                <div className="col-12 col-lg-12 col-xl-6">
+                                                    <div className="row" style={{marginTop: "5.5rem"}}>
+                                                        <Controller>
+                                                            <div className="col-6 px-0 mt-4 mb-5" >
+                                                                {/* <Fade delay={1200}> */}
+                                                                    <Button className="btn btn-link text-decoration-none float-start"
+                                                                            type="button"
+                                                                            isLarge 
+                                                                            onClick={prevStep}
+                                                                    >
+                                                                        {"< Kembali"}
+                                                                    </Button>
+                                                                {/* </Fade> */}
+                                                            </div>
+                                                            <div className="col-6 mt-4" >
+                                                            {
+                                                                data.instagram !== "" &&
+                                                                data.contentType.count !== 0 &&
+                                                                data.knowRateku !== "" && (
+                                                                    // <Fade delay={300}>
+                                                                        <Button className="button-next fw-bold text-decoration-none text-center px-5 float-end border-0"
+                                                                                type="button"
+                                                                                isPrimary 
+                                                                                isRounded
+                                                                                isLarge 
+                                                                                onClick={nextStep}
+                                                                        >
+                                                                            Lanjutkan
+                                                                        </Button>
+                                                                    // </Fade>
+                                                                )
+                                                            }
+                                                            </div>
+                                                        </Controller>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {CurrentStep === "completeInfluencer" && (
+                                            <div className="stepper-controller" style={{marginBottom: "19.4rem"}}>
+                                                <div className="col-12 col-lg-12 col-xl-6">
+                                                    <Controller>
+                                                        <div className="col-12 col-xl-10">
+                                                        {
                                                             // <Fade delay={300}>
-                                                                <Button className="button-next fw-bold text-decoration-none text-center px-5 float-end border-0"
-                                                                        type="button"
+                                                                <Button className="button-next fw-bold text-decoration-none text-center float-end border-0"
+                                                                        type="link"
+                                                                        href="/"
                                                                         isPrimary 
                                                                         isRounded
                                                                         isLarge 
-                                                                        onClick={nextStep}
                                                                 >
-                                                                    Lanjutkan
+                                                                    Selesai
                                                                 </Button>
                                                             // </Fade>
-                                                        )
-                                                    }
-                                                    </div>
-                                                </Controller>   
-                                            )}
-
-                                            {CurrentStep === "influencerForm" && (
-                                                <Controller>
-                                                    <div className="col-6 px-0 mt-4" >
-                                                        {/* <Fade delay={1200}> */}
-                                                            <Button className="btn btn-link text-decoration-none float-start"
-                                                                    type="button"
-                                                                    isLarge 
-                                                                    onClick={prevStep}
-                                                            >
-                                                                {"< Kembali"}
-                                                            </Button>
-                                                        {/* </Fade> */}
-                                                    </div>
-                                                    <div className="col-6 mt-4" >
-                                                    {
-                                                         data.instagram !== "" &&
-                                                         data.konten !== "" &&
-                                                         data.knowRateku !== "" && (
-                                                            // <Fade delay={300}>
-                                                                <Button className="button-next fw-bold text-decoration-none text-center px-5 float-end border-0"
-                                                                        type="button"
-                                                                        isPrimary 
-                                                                        isRounded
-                                                                        isLarge 
-                                                                        onClick={nextStep}
-                                                                >
-                                                                    Lanjutkan
-                                                                </Button>
-                                                            // </Fade>
-                                                        )
-                                                    }
-                                                    </div>
-                                                </Controller>   
-                                            )}
-
-                                            {CurrentStep === "completeInfluencer" && (
-                                                <Controller>
-                                                    <div className="col-12 col-xl-9">
-                                                    {
-                                                        // <Fade delay={300}>
-                                                            <Button className="button-next fw-bold text-decoration-none text-center float-end border-0"
-                                                                    type="link"
-                                                                    href="/"
-                                                                    isPrimary 
-                                                                    isRounded
-                                                                    isLarge 
-                                                            >
-                                                                Selesai
-                                                            </Button>
-                                                        // </Fade>
-                                                        
-                                                    }
-                                                    </div>
-                                                </Controller>   
-                                            )}
-                                        </div>
-                                    </div>
-                                    <Footer desktopClassName="px-4"/>
+                                                            
+                                                        }
+                                                        </div>
+                                                    </Controller>
+                                                </div>
+                                            </div>   
+                                        )} 
+                                    <Footer style={{marginTop: "8rem", marginBottom:"7rem"}}/>
                                 </div>
                             </div>
                         )

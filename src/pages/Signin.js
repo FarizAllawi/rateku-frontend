@@ -70,9 +70,9 @@ export default class Signin extends Component {
         
         return (
 
-            <>
-                <div className="padding-page container px-3">
-                    <div className="logo col-12 col-xl-6 mb-5">
+            <div className="padding-page container px-4">
+                <div className="no-scroll-bar">
+                    <div className="logo col-12 col-xl-6 mb-4 mt-3">
                         <LogoIcon/>
                     </div>
                 
@@ -174,9 +174,9 @@ export default class Signin extends Component {
                             </div>
                         </div>
                     </div>
+                    <Footer style={{marginTop: "8.85rem", marginBottom:"5rem"}}/>
                 </div>
-                <Footer footerContainer="padding-page px-4"/>
-            </>
+            </div>
         )
     }
 }

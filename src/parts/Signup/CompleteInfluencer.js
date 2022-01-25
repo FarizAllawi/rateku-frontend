@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function CompleteInfluencer(props) {
     return (
-        <div className="padding-page container px-4 mb-5">
+        <div className="mb-5">
             <div className="col-12 col-lg-12 col-xl-5 pb-3">
                 {/* <Fade delay={900}> */}
                     <p className="text-completed fs-6">Untuk menjaga kenyamanan antar pengguna, formulir pendaftaran kamu

@@ -173,7 +173,7 @@ export default class Influencer extends Component {
                                 </div>
                             ) : (
                                 <div className="col-xl-2 position-fixed pt-5 mt-5">
-                                    <div class="nav flex-column flex-nowrap vh-100 overflow-auto text-white mt-4">
+                                    <div className="nav flex-column flex-nowrap vh-100 overflow-auto text-white mt-4">
                                         <li className='nav-item'>
                                             <div className="row">
                                                 <div className="col-2">
@@ -545,8 +545,13 @@ export default class Influencer extends Component {
                         }
                             
                     </div>
-
-                    <Footer style={{ zIndex: "9999"}} />
+                    {
+                        (type === 'desktop') ? (
+                            <Footer fixedFooter  desktopClassName="container" style={{ zIndex: "9999"}} />
+                        ) : (
+                            <Footer style={{ zIndex: "9999"}} />
+                        )
+                    }
                 </div>
             </>
         )
