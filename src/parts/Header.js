@@ -19,7 +19,6 @@ export default function Header(props) {
     const items = Children.toArray(children)
 
     function toggleButton() {
-        console.log("TRUE")
         setToggle(() => !toggle)
         props.collapse(!toggle)
     }
@@ -59,7 +58,7 @@ export default function Header(props) {
                     </div>
                 </header>
             ) : (
-                <header className="header fixed-top mb-auto">
+                <header className="header fixed-top mb-auto" style={{ zIndex: `${99999}`}}>
                     <div className="container">
                         <nav className="navbar navbar-expand-lg navbar-light">
                             <div className="col-8">

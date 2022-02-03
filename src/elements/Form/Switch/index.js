@@ -16,7 +16,7 @@ export default function Switch(props) {
 
     const class_name = [className]
     const items = Children.toArray(children)
-
+    
     return <div className="switch mb-3">
         { labelName && (
             <label htmlFor="" className="label mb-1">{labelName}</label>
@@ -25,7 +25,7 @@ export default function Switch(props) {
         <ul className={`switch-group ${class_name.join(" ")}`}>
         { 
             items.map((item , index) => {
-                return <li key={index} className={`switch-option w-auto py-1 px-2 ${(((value) ? value : defaultValue) === item.props.value) ? 'switch-selected': ''}`} onClick={() => onClick({ target:{ name: name, value: item.props.value}})}>
+                return <li key={index} className={`switch-option w-auto py-1 px-3 ${(((value) ? value : defaultValue) === item.props.value) ? 'switch-selected': ''}`} onClick={() => onClick({ target:{ name: name, value: item.props.value}})}>
                     {
                         item.props.children  
                     }

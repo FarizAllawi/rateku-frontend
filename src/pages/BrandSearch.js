@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
+import ReactPaginate from 'react-paginate';
+import { Navigate  } from 'react-router-dom';
 
 import Header from 'parts/Header'
 import Footer from 'parts/Footer'
+import BrandSearchContent from 'parts/BrandSearchContent'
 import Input from 'elements/Form/Input'
 import Button from 'elements/Button'
 import SearchIcon from 'assets/images/search-icon.svg'
+import PreviousIcon from 'assets/images/previous-arrow.svg'
+import NextIcon from 'assets/images/next-arrow.svg'
 import {ReactComponent as FilterIcon} from 'assets/images/filter-icon.svg'
 import {ReactComponent as FilterIconPrimary} from 'assets/images/filter-icon-primary.svg'
 import Checkbox from 'elements/Form/CheckBox'
-import RateCard from 'elements/RateCard'
+
 
 export default class BrandSearch extends Component {
 
@@ -26,14 +31,19 @@ export default class BrandSearch extends Component {
             male:false,
             female:false
         },
-        dataRateCard: [],
         search: "",
-        searchQuery: "",
         screenWidth: "",
         collapse: false,
         profile : false,
         profileStatus: false,
         mobileFilter: false,
+        pageCount:0,
+        perPage: 24,
+        currentPage: 0,
+        offset: 0 ,
+        dataRateCardOri: [],
+        dataRateCard: [],
+        redirect: false,
         selectWrapper: React.createRef()
     }
 
@@ -42,7 +52,6 @@ export default class BrandSearch extends Component {
             ...this.state,
             [event.target.name] : event.target.value
         })
-        console.log(this.state.data.jabodetabek)
     }
 
     collapseMobileFilter = (event) => {
@@ -65,13 +74,14 @@ export default class BrandSearch extends Component {
                 depok:false,
                 bogor:false,
                 male:false,
-                female:false
+                female:false,
             }
         })
     }
 
     apply = () => {
-        console.log("APPLY")
+        // Hit API
+
         this.setState({
             ...this.state,
             mobileFilter: false
@@ -105,13 +115,23 @@ export default class BrandSearch extends Component {
 
         // HIT API
         const axios = require('axios');
-        const result = axios.get('https://61cbbf49194ffe0017788ddd.mockapi.io/Ratecard')
-        result.then(result => this.setState({...this.state, dataRateCard: result.data}))
-                .catch(error => { console.error(error); throw error; });
+        axios.get('https://61cbbf49194ffe0017788ddd.mockapi.io/Ratecard')
+        .then(result =>{
+            
+            const data = result.data
+            const slice = data.slice(this.state.offset , this.state.offset + this.state.perPage)
+
+            this.setState({
+                ...this.state,
+                pageCount: Math.ceil(data.length / this.state.perPage), 
+                dataRateCardOri: result.data,
+                dataRateCard: slice,
+            })
+        })
+        .catch(error => { console.error(error); throw error; })
         
         this.setState({
             ...this.state,
-            searchQuery: "Fashion",
             data: {
                 ...this.state.data,
                 firstName: "Jhon",
@@ -121,6 +141,34 @@ export default class BrandSearch extends Component {
         // 
 
         this.updateWindowDimensions();
+    }
+
+    handlePageClick = (e) => {
+        const selectedPage = e.selected
+        const offset = selectedPage * this.state.perPage
+        
+        this.setState({
+            currentPage: selectedPage,
+            offset: offset
+        }, () => {
+            this.loadMoreData()
+        })
+    }
+
+    loadMoreData() {
+        const data = this.state.dataRateCardOri
+        const slice = data.slice(this.state.offset , this.state.offset + this.state.perPage)
+        this.setState({
+            ...this.state,
+            pageCount: Math.ceil(data.length / this.state.perPage), 
+            dataRateCard: slice,
+        })
+        window.scrollTo(0, 0)
+    }
+
+    submit = (event) => {
+        event.preventDefault()
+        this.setState({ redirect: true })
     }
 
     componentWillUnmount() {
@@ -136,6 +184,11 @@ export default class BrandSearch extends Component {
         const { data } = this.state
         const { dataRateCard } = this.state 
         const type = this.state.screenWidth < 1200 ? "mobile" : "desktop"
+
+        if (this.state.redirect) {
+            return <Navigate to={`/brand/search/${this.state.search.toLowerCase()}`}/>
+        }
+
         return (
             <>
                 <Header type={type} content="brand" className='has-shadow' fullName={data.firstName+' '+data.lastName} collapse={collapseStatus => this.setState({ ...this.state, collapse: collapseStatus})}>
@@ -252,7 +305,7 @@ export default class BrandSearch extends Component {
                                             <Checkbox name="Female" 
                                                     labelName='Perempuan'
                                                     value={data.female}
-                                                    checked={checkedStatus => this.setState({data:{ ...this.state.data, perempuan: checkedStatus}})}/>
+                                                    checked={checkedStatus => this.setState({data:{ ...this.state.data, female: checkedStatus}})}/>
                                         </div>
                                     </div>
 
@@ -280,7 +333,7 @@ export default class BrandSearch extends Component {
                 </div>
 
                 <div className="container">
-                    <div className="row">
+                    <div className="row mb-5 pb-5">
                         {
                             (type === "desktop") ? (
                                 <div className="col-xl-2 position-fixed pt-5 mt-5">
@@ -347,27 +400,30 @@ export default class BrandSearch extends Component {
                             ) : (<></>)
                         }
                         
-
+                        <BrandSearchContent dataRateCard={dataRateCard} collapseStatus={this.state.collapse}/>
                         <div className={`col-xl-10 col-12 ${type !== 'mobile' ? 'offset-2  ps-5' : ''}`}>
-                            <div className={`${type === 'mobile' && this.state.collapse === true ? 'd-none' : 'visible'} ${type !== 'mobile' ? 'ps-5' : ''}`}>
-                                {
-                                    (type === 'desktop') ? (
-                                        <p className={`${type !== 'mobile' ? 'h5' : 'h6'}  text-white `} style={{marginTop:"7.25rem"}}>Hasil pencarian influencers yang sesuai untuk tipe konten {this.state.searchQuery}</p>
-                                    ) : (
-                                        <div style={{marginTop:"9rem"}}></div>    
-                                    )
-                                }   
-                                <div className="row mt-4 py-0 pt-1">
-                                    {
-                                            dataRateCard?.map((item, index) => {
-                                                return <div className="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-3  col-xxl-3 mb-4" key={index}>
-                                                    <RateCard item={item}/>
-                                                </div>
-                                        })
-                                    }
-                                </div>
+                            <div className="d-flex justify-content-center">
+                                <ReactPaginate
+                                    breakLabel="..."
+                                    nextLabel={<img src={NextIcon} alt="next-icon"/>}
+                                    previousLabel={<img src={PreviousIcon} alt="previous-icon"/>}
+                                    breakClassName="break-me"
+                                    onPageChange={this.handlePageClick}
+                                    pageRangeDisplayed={4}
+                                    pageCount={this.state.pageCount}
+                                    containerClassName="pagination"
+                                    pageClassName="page-item"
+                                    pageLinkClassName="page-link"
+                                    previousClassName="page-item"
+                                    nextClassName="page-item"
+                                    previousLinkClassName="page-link previous"
+                                    nextLinkClassName="page-link next"
+                                    activeClassName="active"
+                                    renderOnZeroPageCount={null}
+                                />
                             </div>
                         </div>
+                        
                             
                     </div>
                     {

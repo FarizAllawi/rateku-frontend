@@ -6,29 +6,14 @@ import Select from 'elements/Form/Select'
 import 'assets/scss/style.scss'
 
 export default function SignUp(props) {
-    const [type, setType] = useState('desktop')
-
-    useEffect(() => {
-        // Detect virtual keyboard on mobile screen
-        window.addEventListener("resize", updateWindowDimensions.bind());
-        return () => {
-            window.removeEventListener("resize", updateWindowDimensions.bind());
-        };
-    })
-
-    function updateWindowDimensions() {
-        if (window.innerWidth < 768) {
-            setType(() => 'mobile' )
-        } else {
-            setType(() => 'desktop' )
-        }
-
-    }
+    
+    const [screenWidth] = useState(window.innerWidth)
+    const type =  screenWidth < 1200 ? "mobile" : "desktop"
 
     return (
         <div className="col-12 col-md-12 col-lg-12 col-xl-6">
             <div className="row">
-                <div className={`${type === 'mobile' ? 'col-12':'w-50 pe-2'}`}>
+                <div className={`${type === 'mobile' ? 'col-12':'col-md-6 pe-2'}`}>
                     {/* <Fade delay={900}> */}
                         <Input name="firstName" 
                             value={props.data.firstName} 
@@ -36,7 +21,7 @@ export default function SignUp(props) {
                             placeholder="Nama Depan"/>
                     {/* </Fade> */}
                 </div>
-                <div className={`${type === 'mobile' ? 'col-12':'w-50 ps-2'}`}>
+                <div className={`${type === 'mobile' ? 'col-12':'col-md-6 ps-2'}`}>
                     {/* <Fade delay={900}> */}
                         <Input name="lastName" 
                             value={props.data.lastName} 

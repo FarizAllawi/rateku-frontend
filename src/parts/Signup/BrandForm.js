@@ -109,7 +109,7 @@ export default function BrandForm(props) {
                         </Select>
                     {/* </Fade> */}
                 </div>
-                <div className="col-12 col-md-6 col-lg-6 col-xl-6">
+                <div className={`col-12 col-md-6 col-lg-6 col-xl-6 ${type==='mobile' ? 'mb-5' : ''}`}>
                     {/* <Fade delay={900}> */}
                         <Input  name="referalCode" 
                                 value={props.data.referalCode} 

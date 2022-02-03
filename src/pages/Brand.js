@@ -63,7 +63,7 @@ export default class Brand extends Component {
         const type = this.state.screenWidth < 1200 ? "mobile" : "desktop"
 
         if (this.state.redirect) {
-            return <Navigate to={`/brand/search/${this.state.search}`}/>
+            return <Navigate to={`/brand/search/${this.state.search.toLowerCase()}`}/>
         }
 
         return (

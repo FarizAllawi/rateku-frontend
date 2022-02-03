@@ -8,7 +8,7 @@
         position:absolute;
         list-style-type: none;
         margin: 0;
-        padding:0.5rem .5rem;
+        padding:0.3rem .3rem;
         border-radius: 2rem;
         background-color:rgba(0, 0, 0, 0.4);
     }
@@ -28,12 +28,12 @@
     }
 
     .switch-selected {
-        background-color: #0C1F36;
-        color:white;
+        background-color: white;
+        color:black;
     }
     
     .switch-selected:hover {
-        background-color: #0C1F36;
-        color:white;
+        background-color: white;
+        color:black;
     }
 }

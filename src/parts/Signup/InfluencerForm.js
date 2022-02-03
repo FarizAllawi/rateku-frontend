@@ -55,7 +55,7 @@ export default function InfluencerForm(props) {
             </div>
 
             <div className="row" style={{position:"relative", zIndex:"2"}}>
-                <div className={`${type === 'mobile' ? 'col-12':'w-50 pe-2'}`} style={{position:"relative", zIndex:"3"}}>
+                <div className={`${type === 'mobile' ? 'col-12':'col-md-6 pe-2'}`} style={{position:"relative", zIndex:"3"}}>
                     {/* <Fade delay={900}> */}
                         <Select name="knowRateku"
                                 value={props.data.knowRateku}
@@ -74,7 +74,7 @@ export default function InfluencerForm(props) {
                         </Select>
                     {/* </Fade> */}
                 </div>
-                <div className={`${type === 'mobile' ? 'col-12':'w-50 ps-2'}`}>
+                <div className={`${type === 'mobile' ? 'col-12':'col-md-6 ps-2'}`}>
                     {/* <Fade delay={900}> */}
                         <Input  name="referalCode" 
                                 value={props.data.referalCode} 

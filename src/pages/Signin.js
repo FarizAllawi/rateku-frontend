@@ -13,7 +13,7 @@ export default class Signin extends Component {
         data: {
             emailOrNumber: "",
             password: "",
-            toggle: "influencer",
+            toggle: "brand",
         },
         validation: {
             emailOrNumber: false,
@@ -83,9 +83,9 @@ export default class Signin extends Component {
                             <Switch name="toggle" 
                                     value={data.toggle} 
                                     onClick={this.onChange}
-                                    defaultValue="influencers">
-                                <option value="influencer">Influencers</option>
+                                    defaultValue="brands">
                                 <option value="brand">Brands</option>
+                                <option value="influencer">Influencers</option>
                             </Switch>
                         </div>
 

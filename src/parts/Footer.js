@@ -11,7 +11,6 @@ export default function Footer(props) {
     if (type === 'desktop' && props.desktopClassName) className.push(props.desktopClassName)
     if (type === 'mobile' && props.mobileClassName) className.push(props.mobileClassName)
 
-    console.log(props.fixedFooter)
     return (
         <footer className={`${type === 'mobile' ? 'footer mobile': `footer desktop ${props.fixedFooter ? 'fixed-bottom' : ''}`}`} style={props.style}>
             <div className={`${className.join(' ')}`}>
