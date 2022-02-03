@@ -86,7 +86,7 @@ export default class Brand extends Component {
                                     </div>
                                     <div className="w-auto" style={{ marginTop:"-1rem" }}>
                                         <Button className="button-username text-decoration-none border-0 rounded-3 text-center px-5 mt-n3"
-                                                style={{ paddingTop: "0.4rem", paddingBottom: "0.4rem", background: "#C3EBE2"}}
+                                                style={{ paddingTop: "0.4rem", paddingBottom: "0.4rem", background: "#C3EBE2", color: "#000000"}}
                                             type="submit"
                                         >
                                             Cari
